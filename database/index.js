@@ -6,7 +6,7 @@ export default [
     manufacturer: "Apple",
     display: "Liquid Retina HD",
     size: "6.1 in",
-    dimensions: "2.98 x 5.94 x 0.33 in"
+    dimensions: "2.98 x 5.94 x 0.33 in."
   },
   {
     name: "iPhone 11 Pro",
@@ -15,7 +15,7 @@ export default [
     manufacturer: "Apple",
     display: "Super Retina XDR",
     size: "5.8 in",
-    dimensions: "2.81 x 5.67 x 0.32 in"
+    dimensions: "2.81 x 5.67 x 0.32 in."
   },
   {
     name: "iPhone 11 Pro Max",
@@ -24,7 +24,7 @@ export default [
     manufacturer: "Apple",
     display: "Super Retina XDR",
     size: "6.5 in",
-    dimensions: "3.06 x 6.22 x 0.32 in"
+    dimensions: "3.06 x 6.22 x 0.32 in."
   },
   {
     name: "iPhone Xr",
@@ -33,7 +33,7 @@ export default [
     manufacturer: "Apple",
     display: "Liquid Retina HD",
     size: "6.1 in",
-    dimensions: "2.98 x 5.94 x 0.33 in"
+    dimensions: "2.98 x 5.94 x 0.33 in."
   },
   {
     name: "Galaxy Note 10",
@@ -42,6 +42,6 @@ export default [
     manufacturer: "Samsung",
     display: "FHD+ Dynamic AMOLED",
     size: "6.3 in",
-    dimensions: "2.83 x 5.94 x 0.31 in"
+    dimensions: "2.83 x 5.94 x 0.31 in."
   }
 ];

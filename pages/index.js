@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import phones from "../database/index";
+import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 
 const Index = () => {
@@ -12,6 +13,7 @@ const Index = () => {
         {`
           .container {
             display: flex;
+            justify-content: space-evenly;
           }
         `}
       </style>
@@ -23,28 +25,36 @@ const renderPhones = () => {
   const phoneList = phones.map(phone => {
     return (
       <li key={uuidv4()} className="card">
+        <div className="img-container"></div>
         <div className="title">
-          <a>{phone.name}</a>
+          <Link href="/about">
+            <a>{phone.name}</a>
+          </Link>
         </div>
-        <ul>
+        <ul className="phone-spec">
           <li>{phoneDescription(phone)}</li>
         </ul>
         <style jsx>
           {`
-            li {
-              list-style: none;
-            }
-            ul {
-              padding-left: 0;
-            }
             .card {
+              display: block;
               border: 1px solid black;
+              font-size: 14px;
+            }
+            .img-container {
+              display: block;
+              height: 280px;
+              width: 100%;
+              background-color: lightgray;
+            }
+            .phone-spec {
+              line-height: 1.5;
+              padding: 0 10px;
             }
             .title {
               text-align: center;
-            }
-            .phone-name {
-              text-transform: capitalize;
+              margin: 10px 0;
+              font-weight: 600;
             }
           `}
         </style>
@@ -64,6 +74,7 @@ const phoneDescription = phone => {
       return [first.toUpperCase(), ...rest].join("");
     }
   });
+  keys.shift();
   return keys;
 };
 
