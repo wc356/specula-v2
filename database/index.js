@@ -43,5 +43,23 @@ export default [
     display: "FHD+ Dynamic AMOLED",
     size: "6.3 in",
     dimensions: "2.83 x 5.94 x 0.31 in."
+  },
+  {
+    name: "Galaxy Note 10",
+    released: "July 2019",
+    price: "949.99",
+    manufacturer: "Samsung",
+    display: "FHD+ Dynamic AMOLED",
+    size: "6.3 in",
+    dimensions: "2.83 x 5.94 x 0.31 in."
+  },
+  {
+    name: "Galaxy Note 10",
+    released: "July 2019",
+    price: "949.99",
+    manufacturer: "Samsung",
+    display: "FHD+ Dynamic AMOLED",
+    size: "6.3 in",
+    dimensions: "2.83 x 5.94 x 0.31 in."
   }
 ];

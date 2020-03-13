@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Nav />
-      <div className="layout">{children}</div>
+      <div>{children}</div>
       <style jsx global>
         {`
           @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");

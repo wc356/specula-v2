@@ -7,13 +7,15 @@ const Index = () => {
   return (
     <Layout>
       <div className="body">
-        <ul className="container">{renderPhones()}</ul>
+        <ul className="container">{renderBody()}</ul>
       </div>
       <style jsx>
         {`
           .container {
             display: flex;
             justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding-top: 100px;
           }
         `}
       </style>
@@ -21,7 +23,7 @@ const Index = () => {
   );
 };
 
-const renderPhones = () => {
+const renderBody = () => {
   const phoneList = phones.map(phone => {
     return (
       <li key={uuidv4()} className="card">
@@ -38,18 +40,23 @@ const renderPhones = () => {
           {`
             .card {
               display: block;
+              min-height: 425px;
+              width: 240px;
               border: 1px solid black;
               font-size: 14px;
+              margin-bottom: 15px;
+              padding-top: 20px;
             }
             .img-container {
               display: block;
-              height: 280px;
-              width: 100%;
+              margin: 0 auto;
+              height: 250px;
+              width: 200px;
               background-color: lightgray;
             }
             .phone-spec {
               line-height: 1.5;
-              padding: 0 10px;
+              padding: 0 20px;
             }
             .title {
               text-align: center;
@@ -64,7 +71,7 @@ const renderPhones = () => {
   return phoneList;
 };
 
-const phoneDescription = phone => {
+function phoneDescription(phone) {
   const keys = Object.keys(phone).map(key => {
     return (
       <p key={uuidv4()}>{capitalizeFirstLetter(key) + `: ${phone[key]}`}</p>
@@ -76,6 +83,6 @@ const phoneDescription = phone => {
   });
   keys.shift();
   return keys;
-};
+}
 
 export default Index;
