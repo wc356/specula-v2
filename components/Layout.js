@@ -5,6 +5,7 @@ const Layout = ({ children }) => {
     <>
       <Nav />
       <div>{children}</div>
+
       <style jsx global>
         {`
           @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
@@ -14,13 +15,17 @@ const Layout = ({ children }) => {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: "Poppins", sans-serif;
           }
           li {
             list-style: none;
           }
-          a,
-          p {
-            font-family: "Poppins", sans-serif;
+          a {
+            text-decoration-skip-ink: auto;
+            transition: all 0.15s;
+          }
+          a:hover {
+            transform: translateY(-5px);
           }
         `}
       </style>

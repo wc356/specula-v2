@@ -30,14 +30,19 @@ const Nav = () => (
           display: flex;
           position: sticky;
           top: 0;
-          background-color: pink;
+          border-bottom: 1px solid lightgray;
+          background: #fff;
           height: 15vh;
           width: 100%;
           align-items: center;
+          z-index: 2;
+          box-shadow: 3px 3px 6px #eee;
         }
         .logo {
           display: block;
           padding: 15px;
+          margin-left: 15px;
+          font-size: 20px;
         }
         .nav-flexend {
           display: flex;
