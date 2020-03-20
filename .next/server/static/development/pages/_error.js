@@ -93,23 +93,6 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault;
-
-/***/ }),
-
 /***/ "./node_modules/next/dist/next-server/lib/amp-context.js":
 /*!***************************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/amp-context.js ***!
@@ -463,7 +446,7 @@ exports.default = () => {
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
 exports.default = void 0;
@@ -478,22 +461,23 @@ var statusCodes = {
   405: 'Method Not Allowed',
   500: 'Internal Server Error'
 };
+
+function _getInitialProps(_ref) {
+  var {
+    res,
+    err
+  } = _ref;
+  var statusCode = res && res.statusCode ? res.statusCode : err ? err.statusCode : 404;
+  return {
+    statusCode
+  };
+}
 /**
 * `Error` component used for handling errors.
 */
 
-class Error extends _react.default.Component {
-  static getInitialProps(_ref) {
-    var {
-      res,
-      err
-    } = _ref;
-    var statusCode = res && res.statusCode ? res.statusCode : err ? err.statusCode : 404;
-    return {
-      statusCode
-    };
-  }
 
+class Error extends _react.default.Component {
   render() {
     var {
       statusCode
@@ -518,6 +502,8 @@ class Error extends _react.default.Component {
 
 exports.default = Error;
 Error.displayName = 'ErrorPage';
+Error.getInitialProps = _getInitialProps;
+Error.origGetInitialProps = _getInitialProps;
 var styles = {
   error: {
     color: '#000',
@@ -555,6 +541,23 @@ var styles = {
     padding: 0
   }
 };
+
+/***/ }),
+
+/***/ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
 
 /***/ }),
 
