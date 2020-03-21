@@ -129,7 +129,7 @@ const AddPhonePage = props => __jsx("div", {
   __self: undefined
 }, "Add Phones"), __jsx(_src_components_PhoneForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
   onSubmit: phone => {
-    console.log(phone);
+    props.dispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_3__["addPhone"])(phone));
   },
   __source: {
     fileName: _jsxFileName,
@@ -138,7 +138,20 @@ const AddPhonePage = props => __jsx("div", {
   __self: undefined
 }));
 
-/* harmony default export */ __webpack_exports__["default"] = (AddPhonePage);
+AddPhonePage.getInitialProps = ({
+  store,
+  isServer,
+  pathname,
+  query
+}) => {
+  store.dispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_3__["addPhone"])(phone)); // The component can read from the store's state when rendered
+
+  return {
+    custom: "custom"
+  }; // You can pass some custom props to the component from here
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(state => state)(AddPhonePage));
 
 /***/ }),
 

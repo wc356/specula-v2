@@ -5,6 +5,7 @@ import PhoneDashboardPage from "../src/components/PhoneDashboardPage";
 import { Provider } from "react-redux";
 import { addPhone } from "../src/actions/phones";
 import getVisiblePhones from "../src/selectors/phones";
+import { createStore } from "redux";
 
 const store = configureStore();
 store.dispatch(
