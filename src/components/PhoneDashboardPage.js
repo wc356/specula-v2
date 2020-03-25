@@ -1,6 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
 import PhoneList from "./PhoneList";
-import PhoneListFilters from "./PhoneListFilters";
 
 const PhoneDashboardPage = () => (
   <div>
@@ -8,4 +8,4 @@ const PhoneDashboardPage = () => (
   </div>
 );
 
-export default PhoneDashboardPage;
+export default connect()(PhoneDashboardPage);
