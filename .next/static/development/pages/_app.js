@@ -3790,12 +3790,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _src_context_phones_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/context/phones-context */ "./src/context/phones-context.js");
-/* harmony import */ var _src_reducers_filters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/reducers/filters */ "./src/reducers/filters.js");
-/* harmony import */ var _src_reducers_phones__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/reducers/phones */ "./src/reducers/phones.js");
-/* harmony import */ var _src_actions_phones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/actions/phones */ "./src/actions/phones.js");
+/* harmony import */ var _src_database_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/database/index */ "./src/database/index.js");
+/* harmony import */ var _src_reducers_filters__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/reducers/filters */ "./src/reducers/filters.js");
+/* harmony import */ var _src_reducers_phones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/reducers/phones */ "./src/reducers/phones.js");
+/* harmony import */ var _src_actions_phones__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/actions/phones */ "./src/actions/phones.js");
 
 var _jsxFileName = "/Users/WooChoi/Desktop/React.js/specula/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -3806,50 +3808,20 @@ var App = function App(_ref) {
   var Component = _ref.Component,
       pageProps = _ref.pageProps;
 
-  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_1__["useReducer"])(_src_reducers_phones__WEBPACK_IMPORTED_MODULE_4__["default"], []),
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_1__["useReducer"])(_src_reducers_phones__WEBPACK_IMPORTED_MODULE_5__["default"], _src_database_index__WEBPACK_IMPORTED_MODULE_3__["default"]),
       phones = _useReducer[0],
       phonesDispatch = _useReducer[1];
 
-  var _useReducer2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useReducer"])(_src_reducers_filters__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  var _useReducer2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useReducer"])(_src_reducers_filters__WEBPACK_IMPORTED_MODULE_4__["default"], {
     text: "",
     sortBy: "release"
   }),
       filters = _useReducer2[0],
-      filtersDispatch = _useReducer2[1]; // componentDidMount() - Initial Render Phones
-
-
-  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    console.log("Successfully Mounted");
-    phonesDispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_5__["addPhone"])({
-      name: "iPhone 8",
-      release: "Sept 2018",
-      price: 900
-    }));
-    phonesDispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_5__["addPhone"])({
-      name: "iPhone 11",
-      release: "Oct 2019",
-      price: 1800
-    }));
-    phonesDispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_5__["addPhone"])({
-      name: "iPhone 12",
-      release: "Jan 2020",
-      price: 3200
-    }));
-    phonesDispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_5__["addPhone"])({
-      name: "iPhone 13",
-      release: "Jan 2020",
-      price: 4000,
-      brand: "Apple"
-    }));
-    phonesDispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_5__["addPhone"])({
-      name: "Galaxy Note 8",
-      release: "Sept 2018",
-      price: 3300,
-      brand: "Samsung"
-    }));
-  }, []); // Load data from localStorage
+      filtersDispatch = _useReducer2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    console.log("Successfully Mounted"); // Load data from localStorage
+
     var phones = JSON.parse(localStorage.getItem("phones"));
 
     if (phones) {
@@ -3872,13 +3844,13 @@ var App = function App(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 32
     },
     __self: this
   }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 35
     },
     __self: this
   })));
@@ -3970,6 +3942,109 @@ __webpack_require__.r(__webpack_exports__);
 
 var PhonesContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();
 
+
+/***/ }),
+
+/***/ "./src/database/index.js":
+/*!*******************************!*\
+  !*** ./src/database/index.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  id: "iPhone 11",
+  name: "iPhone 11",
+  release: "2019 Sept",
+  price: 69000,
+  brand: "Apple",
+  display: "Liquid Retina HD",
+  screen: "6.1 in",
+  dimensions: "2.98 x 5.94 x 0.33 in"
+}, {
+  id: "iPhone 11 Pro",
+  name: "iPhone 11 Pro",
+  release: "2019 Sept",
+  price: 99900,
+  brand: "Apple",
+  display: "Super Retina XDR",
+  screen: "5.8 in",
+  dimensions: "2.81 x 5.67 x 0.32 in"
+}, {
+  id: "iPhone 11 Pro Max",
+  name: "iPhone 11 Pro Max",
+  release: "2019 Sept",
+  price: 109900,
+  brand: "Apple",
+  display: "Super Retina XDR",
+  screen: "6.5 in",
+  dimensions: "3.06 x 6.22 x 0.32 in"
+}, {
+  id: "iPhone Xr",
+  name: "iPhone Xr",
+  release: "2018 Sept",
+  price: 59900,
+  brand: "Apple",
+  display: "Liquid Retina HD",
+  screen: "6.1 in",
+  dimensions: "2.98 x 5.94 x 0.33 in"
+}, {
+  id: "Galaxy Note 10",
+  name: "Galaxy Note 10",
+  release: "2019 July",
+  price: 94999,
+  brand: "Samsung",
+  display: "FHD+ Dynamic AMOLED",
+  screen: "6.3 in",
+  dimensions: "2.83 x 5.94 x 0.31 in"
+}, {
+  id: "Galaxy Note 10+",
+  name: "Galaxy Note 10+",
+  release: "2019 July",
+  price: 1099.09,
+  brand: "Samsung",
+  display: "Quad HD+ Dynamic AMOLED",
+  screen: "6.8 in",
+  dimensions: "3.04 x 6.39 x 0.31 in"
+}, {
+  id: "Galaxy S10",
+  name: "Galaxy S10",
+  release: "2019 March",
+  price: 89999,
+  brand: "Samsung",
+  display: "Quad HD+ Dynamic AMOLED",
+  screen: "6.1 in",
+  dimensions: "2.77 x 5.90 x 0.31 in"
+}, {
+  id: "Galaxy S10+",
+  name: "Galaxy S10+",
+  release: "2019 March",
+  price: 99999,
+  brand: "Samsung",
+  display: "Quad HD+ Dynamic AMOLED",
+  screen: "6.4 in",
+  dimensions: "2.92 x 6.20 x 0.31 in"
+}, {
+  id: "Galaxy Fold",
+  name: "Galaxy Fold",
+  release: "2019 Sept",
+  price: 198000,
+  brand: "Samsung",
+  display: "QXGA+ Dynamic AMOLED",
+  screen: "7.3 in",
+  dimensions: "4.64 x 6.33 x 0.30 in"
+}, {
+  id: "Pixel 3",
+  name: "Pixel 3",
+  release: "2019 Sept",
+  price: 79900,
+  brand: "Google",
+  display: "FHD+ flexible OLED",
+  screen: "5.5 in",
+  dimensions: "2.69 x 5.73 x 0.31 in"
+}]);
 
 /***/ }),
 

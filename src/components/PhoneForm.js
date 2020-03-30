@@ -113,7 +113,7 @@ const PhoneForm = props => {
             border: solid 0.5px lightgray;
           }
           .btn {
-            background-color: pink;
+            background-color: gray;
             font-size: 15px;
             height: 30px;
             border-radius: 15px;

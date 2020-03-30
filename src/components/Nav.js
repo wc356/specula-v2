@@ -5,7 +5,7 @@ const Nav = () => (
   <div className="navbar">
     <div className="title">
       <Link href="/">
-        <a className="logo">SPECULA</a>
+        <a className="logo">specula</a>
       </Link>
     </div>
     <PhoneListFilters />
@@ -35,10 +35,15 @@ const Nav = () => (
           box-shadow: 3px 3px 6px #eee;
         }
         .logo {
-          display: block;
+          display: inline;
           padding: 15px;
           margin-left: 15px;
-          font-size: 20px;
+          font-size: 25px;
+          background: linear-gradient(to right, #5834db, #e60073);
+          background-clip: text;
+          text-fill-color: transparent;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
         .nav-flexend {
           display: flex;

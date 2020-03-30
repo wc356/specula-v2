@@ -1,92 +1,102 @@
 export default [
   {
+    id: "iPhone 11",
     name: "iPhone 11",
-    released: "Sept 2019",
-    price: "$690.00",
-    manufacturer: "Apple",
+    release: "2019 Sept",
+    price: 69000,
+    brand: "Apple",
     display: "Liquid Retina HD",
-    "screen-size": "6.1 in",
-    dims: "2.98 x 5.94 x 0.33 in."
+    screen: "6.1 in",
+    dimensions: "2.98 x 5.94 x 0.33 in"
   },
   {
+    id: "iPhone 11 Pro",
     name: "iPhone 11 Pro",
-    released: "Sept 2019",
-    price: "$999.00",
-    manufacturer: "Apple",
+    release: "2019 Sept",
+    price: 99900,
+    brand: "Apple",
     display: "Super Retina XDR",
-    "screen-size": "5.8 in",
-    dims: "2.81 x 5.67 x 0.32 in."
+    screen: "5.8 in",
+    dimensions: "2.81 x 5.67 x 0.32 in"
   },
   {
+    id: "iPhone 11 Pro Max",
     name: "iPhone 11 Pro Max",
-    released: "Sept 2019",
-    price: "$1099.00",
-    manufacturer: "Apple",
+    release: "2019 Sept",
+    price: 109900,
+    brand: "Apple",
     display: "Super Retina XDR",
-    "screen-size": "6.5 in",
-    dims: "3.06 x 6.22 x 0.32 in."
+    screen: "6.5 in",
+    dimensions: "3.06 x 6.22 x 0.32 in"
   },
   {
+    id: "iPhone Xr",
     name: "iPhone Xr",
-    released: "Sept 2018",
-    price: "$599.00",
-    manufacturer: "Apple",
+    release: "2018 Sept",
+    price: 59900,
+    brand: "Apple",
     display: "Liquid Retina HD",
-    "screen-size": "6.1 in",
-    dims: "2.98 x 5.94 x 0.33 in."
+    screen: "6.1 in",
+    dimensions: "2.98 x 5.94 x 0.33 in"
   },
   {
+    id: "Galaxy Note 10",
     name: "Galaxy Note 10",
-    released: "July 2019",
-    price: "$949.99",
-    manufacturer: "Samsung",
+    release: "2019 July",
+    price: 94999,
+    brand: "Samsung",
     display: "FHD+ Dynamic AMOLED",
-    "screen-size": "6.3 in",
-    dims: "2.83 x 5.94 x 0.31 in."
+    screen: "6.3 in",
+    dimensions: "2.83 x 5.94 x 0.31 in"
   },
   {
+    id: "Galaxy Note 10+",
     name: "Galaxy Note 10+",
-    released: "July 2019",
-    price: "$1099.99",
-    manufacturer: "Samsung",
+    release: "2019 July",
+    price: 1099.09,
+    brand: "Samsung",
     display: "Quad HD+ Dynamic AMOLED",
-    "screen-size": "6.8 in",
-    dims: "3.04 x 6.39 x 0.31 in."
+    screen: "6.8 in",
+    dimensions: "3.04 x 6.39 x 0.31 in"
   },
   {
+    id: "Galaxy S10",
     name: "Galaxy S10",
-    released: "March 2019",
-    price: "$899.99",
-    manufacturer: "Samsung",
+    release: "2019 March",
+    price: 89999,
+    brand: "Samsung",
     display: "Quad HD+ Dynamic AMOLED",
-    "screen-size": "6.1 in",
-    dims: "2.77 x 5.90 x 0.31 in."
+    screen: "6.1 in",
+    dimensions: "2.77 x 5.90 x 0.31 in"
   },
   {
+    id: "Galaxy S10+",
     name: "Galaxy S10+",
-    released: "March 2019",
-    price: "$999.99",
-    manufacturer: "Samsung",
+    release: "2019 March",
+    price: 99999,
+    brand: "Samsung",
     display: "Quad HD+ Dynamic AMOLED",
-    "screen-size": "6.4 in",
-    dims: "2.92 x 6.20 x 0.31 in."
+    screen: "6.4 in",
+    dimensions: "2.92 x 6.20 x 0.31 in"
   },
   {
+    id: "Galaxy Fold",
     name: "Galaxy Fold",
-    released: "Sept 2019",
-    price: "$1980.00",
-    manufacturer: "Samsung",
+    release: "2019 Sept",
+    price: 198000,
+    brand: "Samsung",
     display: "QXGA+ Dynamic AMOLED",
-    "screen-size": "7.3 in",
-    dims: "4.64 x 6.33 x 0.30 in."
+    screen: "7.3 in",
+    dimensions: "4.64 x 6.33 x 0.30 in"
   },
   {
+    id: "Pixel 3",
     name: "Pixel 3",
-    released: "Sept 2019",
-    price: "$799.00",
-    manufacturer: "Google",
+    release: "2019 Sept",
+    price: 79900,
+    brand: "Google",
     display: "FHD+ flexible OLED",
-    "screen-size": "5.5 in",
-    dimension: "2.69 x 5.73 x 0.31 in."
+    screen: "5.5 in",
+    dimensions: "2.69 x 5.73 x 0.31 in"
   }
 ];

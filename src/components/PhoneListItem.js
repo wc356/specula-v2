@@ -34,13 +34,16 @@ const PhoneListItem = ({
         <li>Screen: {screen}</li>
         <li>Dimensions: {dimensions}</li>
       </ul>
-      <button
-        onClick={() => {
-          phonesDispatch(removePhone({ id }));
-        }}
-      >
-        Remove
-      </button>
+      <div className="btn-container">
+        <button
+          className="btn"
+          onClick={() => {
+            phonesDispatch(removePhone({ id }));
+          }}
+        >
+          Remove
+        </button>
+      </div>
 
       <style jsx>
         {`
@@ -58,7 +61,7 @@ const PhoneListItem = ({
           }
           .card:hover {
             transform: translateY(-13px);
-            border: 1px solid lightgray;
+            border: 1px solid pink;
           }
           .img-container {
             display: block;
@@ -76,6 +79,19 @@ const PhoneListItem = ({
             text-align: center;
             margin: 10px 0;
             font-weight: 600;
+          }
+          .btn-container {
+            display: flex;
+            justify-content: center;
+          }
+          .btn {
+            display: block;
+            margin: 10px 0;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: pink;
+            border: none;
           }
         `}
       </style>

@@ -66,9 +66,10 @@ const AddPhonePage = () => {
             display: inline-block;
             text-align: center;
             margin-top: 30px;
-            background-color: skyblue;
             width: 300px;
             border-radius: 10px;
+            border: 1px gray solid;
+            color: black;
           }
         `}
       </style>
