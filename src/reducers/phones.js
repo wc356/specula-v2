@@ -17,6 +17,8 @@ const phonesReducer = (state = phonesReducerDefaultState, action) => {
           return phone;
         }
       });
+    case "POPULATE_PHONES":
+      return action.phones;
     default:
       return state;
   }

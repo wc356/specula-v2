@@ -10,7 +10,6 @@ const PhoneForm = props => {
   const [dimensions, setDimensions] = useState("");
   const [error, setError] = useState("");
 
-  // const onInputChange = e, val => `set${}Change`
   const onNameChange = e => setName(e.target.value);
   const onReleaseChange = e => setRelease(e.target.value);
   const onBrandChange = e => setBrand(e.target.value);
@@ -31,6 +30,7 @@ const PhoneForm = props => {
       setError("Please provide Name and Brand");
     } else {
       setError("");
+
       props.onSubmit({
         name,
         release,
@@ -46,8 +46,9 @@ const PhoneForm = props => {
   return (
     <div>
       {error && <p>{error}</p>}
-      <form onSubmit={onSubmit}>
+      <form className="container" onSubmit={onSubmit}>
         <input
+          className="flex-item"
           type="text"
           value={name}
           onChange={onNameChange}
@@ -55,43 +56,71 @@ const PhoneForm = props => {
           autoFocus
         />
         <input
+          className="flex-item"
           type="text"
           value={release}
           onChange={onReleaseChange}
           placeholder="release"
         />
         <input
+          className="flex-item"
           type="text"
           value={price}
           onChange={onPriceChange}
           placeholder="price"
         />
         <input
+          className="flex-item"
           type="text"
           value={brand}
           onChange={onBrandChange}
           placeholder="brand"
         />
         <input
+          className="flex-item"
           type="text"
           value={display}
           onChange={onDisplayChange}
           placeholder="display"
         />
         <input
+          className="flex-item"
           type="text"
           value={screen}
           onChange={onScreenChange}
           placeholder="screen"
         />
         <input
+          className="flex-item"
           type="text"
           value={dimensions}
           onChange={onDimensionsChange}
           placeholder="dimensions"
         />
-        <button>Add Expense</button>
+        <button className="btn">ADD EXPENSE</button>
       </form>
+
+      <style jsx>
+        {`
+          .container {
+            display: flex;
+            flex-direction: column;
+            padding: 0 100px;
+          }
+          .flex-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: solid 0.5px lightgray;
+          }
+          .btn {
+            background-color: pink;
+            font-size: 15px;
+            height: 30px;
+            border-radius: 15px;
+            color: white;
+          }
+        `}
+      </style>
     </div>
   );
 };

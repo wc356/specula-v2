@@ -1,5 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useContext } from "react";
+import PhonesContext from "../context/phones-context";
+
 import {
   setTextFilter,
   sortByPrice,
@@ -7,45 +8,51 @@ import {
   sortByBrand
 } from "../actions/filters";
 
-const PhoneListFilters = props => (
-  <div>
-    <input
-      type="text"
-      value={props.filters.text}
-      onChange={e => {
-        props.dispatch(setTextFilter(e.target.value));
-      }}
-      placeholder="search phone"
-    />
-    <select
-      value={props.filters.sortBy}
-      onChange={e => {
-        let sortBy;
-        switch (e.target.value) {
-          case "release":
-            sortBy = sortByRelease();
-            break;
-          case "price":
-            sortBy = sortByPrice();
-            break;
-          case "brand":
-            sortBy = sortByBrand();
-            break;
-        }
-        props.dispatch(sortBy);
-      }}
-    >
-      <option value="release">Release</option>
-      <option value="price">Price</option>
-      <option value="brand">Brand</option>
-    </select>
-  </div>
-);
+const PhoneListFilters = () => {
+  const { filters, filtersDispatch } = useContext(PhonesContext);
 
-const mapStateToProps = state => {
-  return {
-    filters: state.filters
-  };
+  return (
+    <div>
+      <input
+        type="text"
+        value={filters.text}
+        onChange={e => {
+          filtersDispatch(setTextFilter(e.target.value));
+        }}
+        placeholder="search by phone, brand or display..."
+      />
+
+      <select
+        value={filters.sortBy}
+        onChange={e => {
+          let sortBy;
+          switch (e.target.value) {
+            case "release":
+              sortBy = sortByRelease();
+              break;
+            case "price":
+              sortBy = sortByPrice();
+              break;
+            case "brand":
+              sortBy = sortByBrand();
+              break;
+          }
+          filtersDispatch(sortBy);
+        }}
+      >
+        <option value="release">Release</option>
+        <option value="price">Price</option>
+        <option value="brand">Brand</option>
+      </select>
+      <style jsx>
+        {`
+          input {
+            width: 220px;
+          }
+        `}
+      </style>
+    </div>
+  );
 };
 
-export default connect(mapStateToProps)(PhoneListFilters);
+export default PhoneListFilters;

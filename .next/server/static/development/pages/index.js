@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1204,7 +1204,7 @@ class Router {
       if (true) {
         const {
           isValidElementType
-        } = __webpack_require__(/*! react-is */ "./node_modules/next/node_modules/react-is/index.js");
+        } = __webpack_require__(/*! react-is */ "react-is");
 
         if (!isValidElementType(Component)) {
           throw new Error(`The default export is not a React Component in page: "${pathname}"`);
@@ -1768,262 +1768,6 @@ module.exports = _typeof;
 
 /***/ }),
 
-/***/ "./node_modules/next/node_modules/react-is/cjs/react-is.development.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/next/node_modules/react-is/cjs/react-is.development.js ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/** @license React v16.8.6
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-if (true) {
-  (function() {
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
-var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' ||
-  // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE);
-}
-
-/**
- * Forked from fbjs/warning:
- * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
- *
- * Only change is we use console.warn instead of console.error,
- * and do nothing when 'console' is not supported.
- * This really simplifies the code.
- * ---
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var lowPriorityWarning = function () {};
-
-{
-  var printWarning = function (format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.warn(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  lowPriorityWarning = function (condition, format) {
-    if (format === undefined) {
-      throw new Error('`lowPriorityWarning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-var lowPriorityWarning$1 = lowPriorityWarning;
-
-function typeOf(object) {
-  if (typeof object === 'object' && object !== null) {
-    var $$typeof = object.$$typeof;
-    switch ($$typeof) {
-      case REACT_ELEMENT_TYPE:
-        var type = object.type;
-
-        switch (type) {
-          case REACT_ASYNC_MODE_TYPE:
-          case REACT_CONCURRENT_MODE_TYPE:
-          case REACT_FRAGMENT_TYPE:
-          case REACT_PROFILER_TYPE:
-          case REACT_STRICT_MODE_TYPE:
-          case REACT_SUSPENSE_TYPE:
-            return type;
-          default:
-            var $$typeofType = type && type.$$typeof;
-
-            switch ($$typeofType) {
-              case REACT_CONTEXT_TYPE:
-              case REACT_FORWARD_REF_TYPE:
-              case REACT_PROVIDER_TYPE:
-                return $$typeofType;
-              default:
-                return $$typeof;
-            }
-        }
-      case REACT_LAZY_TYPE:
-      case REACT_MEMO_TYPE:
-      case REACT_PORTAL_TYPE:
-        return $$typeof;
-    }
-  }
-
-  return undefined;
-}
-
-// AsyncMode is deprecated along with isAsyncMode
-var AsyncMode = REACT_ASYNC_MODE_TYPE;
-var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-var ContextConsumer = REACT_CONTEXT_TYPE;
-var ContextProvider = REACT_PROVIDER_TYPE;
-var Element = REACT_ELEMENT_TYPE;
-var ForwardRef = REACT_FORWARD_REF_TYPE;
-var Fragment = REACT_FRAGMENT_TYPE;
-var Lazy = REACT_LAZY_TYPE;
-var Memo = REACT_MEMO_TYPE;
-var Portal = REACT_PORTAL_TYPE;
-var Profiler = REACT_PROFILER_TYPE;
-var StrictMode = REACT_STRICT_MODE_TYPE;
-var Suspense = REACT_SUSPENSE_TYPE;
-
-var hasWarnedAboutDeprecatedIsAsyncMode = false;
-
-// AsyncMode should be deprecated
-function isAsyncMode(object) {
-  {
-    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true;
-      lowPriorityWarning$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-    }
-  }
-  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-}
-function isConcurrentMode(object) {
-  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-}
-function isContextConsumer(object) {
-  return typeOf(object) === REACT_CONTEXT_TYPE;
-}
-function isContextProvider(object) {
-  return typeOf(object) === REACT_PROVIDER_TYPE;
-}
-function isElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-function isForwardRef(object) {
-  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-}
-function isFragment(object) {
-  return typeOf(object) === REACT_FRAGMENT_TYPE;
-}
-function isLazy(object) {
-  return typeOf(object) === REACT_LAZY_TYPE;
-}
-function isMemo(object) {
-  return typeOf(object) === REACT_MEMO_TYPE;
-}
-function isPortal(object) {
-  return typeOf(object) === REACT_PORTAL_TYPE;
-}
-function isProfiler(object) {
-  return typeOf(object) === REACT_PROFILER_TYPE;
-}
-function isStrictMode(object) {
-  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-}
-function isSuspense(object) {
-  return typeOf(object) === REACT_SUSPENSE_TYPE;
-}
-
-exports.typeOf = typeOf;
-exports.AsyncMode = AsyncMode;
-exports.ConcurrentMode = ConcurrentMode;
-exports.ContextConsumer = ContextConsumer;
-exports.ContextProvider = ContextProvider;
-exports.Element = Element;
-exports.ForwardRef = ForwardRef;
-exports.Fragment = Fragment;
-exports.Lazy = Lazy;
-exports.Memo = Memo;
-exports.Portal = Portal;
-exports.Profiler = Profiler;
-exports.StrictMode = StrictMode;
-exports.Suspense = Suspense;
-exports.isValidElementType = isValidElementType;
-exports.isAsyncMode = isAsyncMode;
-exports.isConcurrentMode = isConcurrentMode;
-exports.isContextConsumer = isContextConsumer;
-exports.isContextProvider = isContextProvider;
-exports.isElement = isElement;
-exports.isForwardRef = isForwardRef;
-exports.isFragment = isFragment;
-exports.isLazy = isLazy;
-exports.isMemo = isMemo;
-exports.isPortal = isPortal;
-exports.isProfiler = isProfiler;
-exports.isStrictMode = isStrictMode;
-exports.isSuspense = isSuspense;
-  })();
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/next/node_modules/react-is/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/next/node_modules/react-is/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/next/node_modules/react-is/cjs/react-is.development.js");
-}
-
-
-/***/ }),
-
 /***/ "./pages/index.js":
 /*!************************!*\
   !*** ./pages/index.js ***!
@@ -2035,67 +1779,31 @@ if (false) {} else {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _src_store_configureStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/store/configureStore */ "./src/store/configureStore.js");
-/* harmony import */ var _src_components_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/Layout */ "./src/components/Layout.js");
-/* harmony import */ var _src_components_PhoneDashboardPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/PhoneDashboardPage */ "./src/components/PhoneDashboardPage.js");
-/* harmony import */ var _src_actions_phones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/actions/phones */ "./src/actions/phones.js");
-/* harmony import */ var _src_selectors_phones__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/selectors/phones */ "./src/selectors/phones.js");
+/* harmony import */ var _src_components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/components/Layout */ "./src/components/Layout.js");
+/* harmony import */ var _src_components_PhoneDashboardPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/PhoneDashboardPage */ "./src/components/PhoneDashboardPage.js");
 var _jsxFileName = "/Users/WooChoi/Desktop/React.js/specula/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
-
-
-
-
-
-const Index = props => __jsx(_src_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 11
-  },
-  __self: undefined
-}, __jsx(_src_components_PhoneDashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 12
-  },
-  __self: undefined
-}), __jsx("div", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 13
-  },
-  __self: undefined
-}, "Prop from Redux ", props.name));
-
-Index.getInitialProps = ({
-  store,
-  isServer,
-  pathname,
-  query
-}) => {
-  store.dispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_5__["addPhone"])({
-    name: "iPhone 8",
-    release: "Sept 2018",
-    price: 900
+const Index = () => {
+  return __jsx(_src_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: undefined
+  }, __jsx(_src_components_PhoneDashboardPage__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
   }));
-  store.dispatch(Object(_src_actions_phones__WEBPACK_IMPORTED_MODULE_5__["addPhone"])({
-    name: "iPhone 11",
-    release: "Jan 2018",
-    price: 1600
-  }));
-  const state = store.getState();
-  Object(_src_selectors_phones__WEBPACK_IMPORTED_MODULE_6__["default"])(state.phones, state.filters);
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(state => {
-  return state;
-})(Index));
+/* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
@@ -2402,30 +2110,27 @@ const Nav = () => __jsx("div", {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _PhoneList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PhoneList */ "./src/components/PhoneList.js");
+/* harmony import */ var _PhoneList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PhoneList */ "./src/components/PhoneList.js");
 var _jsxFileName = "/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneDashboardPage.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
 
 
 
 const PhoneDashboardPage = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 5
   },
   __self: undefined
-}, __jsx(_PhoneList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+}, __jsx(_PhoneList__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 6
   },
   __self: undefined
 }));
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(PhoneDashboardPage));
+/* harmony default export */ __webpack_exports__["default"] = (PhoneDashboardPage);
 
 /***/ }),
 
@@ -2442,10 +2147,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _PhoneListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PhoneListItem */ "./src/components/PhoneListItem.js");
-/* harmony import */ var _selectors_phones__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../selectors/phones */ "./src/selectors/phones.js");
+/* harmony import */ var _context_phones_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/phones-context */ "./src/context/phones-context.js");
+/* harmony import */ var _selectors_phones__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../selectors/phones */ "./src/selectors/phones.js");
+/* harmony import */ var _PhoneListItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PhoneListItem */ "./src/components/PhoneListItem.js");
 var _jsxFileName = "/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneList.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
@@ -2457,35 +2161,33 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
-const PhoneList = props => __jsx("ul", {
-  className: "jsx-3193606768" + " " + "phone-list",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 7
-  },
-  __self: undefined
-}, props.phones.map(phone => {
-  return __jsx(_PhoneListItem__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({
+const PhoneList = () => {
+  const {
+    phones,
+    filters
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_phones_context__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  return __jsx("ul", {
+    className: "jsx-1091835636" + " " + "phone-list",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: undefined
+  }, Object(_selectors_phones__WEBPACK_IMPORTED_MODULE_3__["default"])(phones, filters).map(phone => __jsx(_PhoneListItem__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({
     key: phone.id
   }, phone, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 13
     },
     __self: undefined
-  }));
-}), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-  id: "3193606768",
-  __self: undefined
-}, ".phone-list.jsx-3193606768{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-evenly;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-top:100px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Xb29DaG9pL0Rlc2t0b3AvUmVhY3QuanMvc3BlY3VsYS9zcmMvY29tcG9uZW50cy9QaG9uZUxpc3QuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBV08sQUFHd0IsMEVBQ2dCLDJIQUNkLHlEQUNHLGtCQUNwQiIsImZpbGUiOiIvVXNlcnMvV29vQ2hvaS9EZXNrdG9wL1JlYWN0LmpzL3NwZWN1bGEvc3JjL2NvbXBvbmVudHMvUGhvbmVMaXN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IHsgY29ubmVjdCB9IGZyb20gXCJyZWFjdC1yZWR1eFwiO1xuaW1wb3J0IFBob25lTGlzdEl0ZW0gZnJvbSBcIi4vUGhvbmVMaXN0SXRlbVwiO1xuaW1wb3J0IHNlbGVjdFBob25lcyBmcm9tIFwiLi4vc2VsZWN0b3JzL3Bob25lc1wiO1xuXG5jb25zdCBQaG9uZUxpc3QgPSBwcm9wcyA9PiAoXG4gIDx1bCBjbGFzc05hbWU9XCJwaG9uZS1saXN0XCI+XG4gICAge3Byb3BzLnBob25lcy5tYXAocGhvbmUgPT4ge1xuICAgICAgcmV0dXJuIDxQaG9uZUxpc3RJdGVtIGtleT17cGhvbmUuaWR9IHsuLi5waG9uZX0gLz47XG4gICAgfSl9XG4gICAgPHN0eWxlIGpzeD5cbiAgICAgIHtgXG4gICAgICAgIC5waG9uZS1saXN0IHtcbiAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtZXZlbmx5O1xuICAgICAgICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICAgICAgICBwYWRkaW5nLXRvcDogMTAwcHg7XG4gICAgICAgIH1cbiAgICAgIGB9XG4gICAgPC9zdHlsZT5cbiAgPC91bD5cbik7XG5cbmNvbnN0IG1hcFN0YXRlVG9Qcm9wcyA9IHN0YXRlID0+IHtcbiAgcmV0dXJuIHtcbiAgICBwaG9uZXM6IHNlbGVjdFBob25lcyhzdGF0ZS5waG9uZXMsIHN0YXRlLmZpbHRlcnMpXG4gIH07XG59O1xuXG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG1hcFN0YXRlVG9Qcm9wcykoUGhvbmVMaXN0KTtcbiJdfQ== */\n/*@ sourceURL=/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneList.js */"));
-
-const mapStateToProps = state => {
-  return {
-    phones: Object(_selectors_phones__WEBPACK_IMPORTED_MODULE_4__["default"])(state.phones, state.filters)
-  };
+  }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "1091835636",
+    __self: undefined
+  }, ".phone-list.jsx-1091835636{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:space-evenly;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-top:100px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Xb29DaG9pL0Rlc2t0b3AvUmVhY3QuanMvc3BlY3VsYS9zcmMvY29tcG9uZW50cy9QaG9uZUxpc3QuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBZVMsQUFHMEIsMEVBQ2dCLDJIQUNkLHlEQUNHLGtCQUNwQiIsImZpbGUiOiIvVXNlcnMvV29vQ2hvaS9EZXNrdG9wL1JlYWN0LmpzL3NwZWN1bGEvc3JjL2NvbXBvbmVudHMvUGhvbmVMaXN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IHVzZUNvbnRleHQgfSBmcm9tIFwicmVhY3RcIjtcbmltcG9ydCBQaG9uZXNDb250ZXh0IGZyb20gXCIuLi9jb250ZXh0L3Bob25lcy1jb250ZXh0XCI7XG5cbmltcG9ydCBnZXRWaXNpYmxlUGhvbmVzIGZyb20gXCIuLi9zZWxlY3RvcnMvcGhvbmVzXCI7XG5pbXBvcnQgUGhvbmVMaXN0SXRlbSBmcm9tIFwiLi9QaG9uZUxpc3RJdGVtXCI7XG5cbmNvbnN0IFBob25lTGlzdCA9ICgpID0+IHtcbiAgY29uc3QgeyBwaG9uZXMsIGZpbHRlcnMgfSA9IHVzZUNvbnRleHQoUGhvbmVzQ29udGV4dCk7XG5cbiAgcmV0dXJuIChcbiAgICA8dWwgY2xhc3NOYW1lPVwicGhvbmUtbGlzdFwiPlxuICAgICAge2dldFZpc2libGVQaG9uZXMocGhvbmVzLCBmaWx0ZXJzKS5tYXAocGhvbmUgPT4gKFxuICAgICAgICA8UGhvbmVMaXN0SXRlbSBrZXk9e3Bob25lLmlkfSB7Li4ucGhvbmV9IC8+XG4gICAgICApKX1cbiAgICAgIDxzdHlsZSBqc3g+XG4gICAgICAgIHtgXG4gICAgICAgICAgLnBob25lLWxpc3Qge1xuICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtZXZlbmx5O1xuICAgICAgICAgICAgZmxleC13cmFwOiB3cmFwO1xuICAgICAgICAgICAgcGFkZGluZy10b3A6IDEwMHB4O1xuICAgICAgICAgIH1cbiAgICAgICAgYH1cbiAgICAgIDwvc3R5bGU+XG4gICAgPC91bD5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IFBob25lTGlzdDtcbiJdfQ== */\n/*@ sourceURL=/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneList.js */"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps)(PhoneList));
+/* harmony default export */ __webpack_exports__["default"] = (PhoneList);
 
 /***/ }),
 
@@ -2498,91 +2200,102 @@ const mapStateToProps = state => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _actions_filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/filters */ "./src/actions/filters.js");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _context_phones_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/phones-context */ "./src/context/phones-context.js");
+/* harmony import */ var _actions_filters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/filters */ "./src/actions/filters.js");
 var _jsxFileName = "/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneListFilters.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
 
-const PhoneListFilters = props => __jsx("div", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 11
-  },
-  __self: undefined
-}, __jsx("input", {
-  type: "text",
-  value: props.filters.text,
-  onChange: e => {
-    props.dispatch(Object(_actions_filters__WEBPACK_IMPORTED_MODULE_2__["setTextFilter"])(e.target.value));
-  },
-  placeholder: "search phone",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 12
-  },
-  __self: undefined
-}), __jsx("select", {
-  value: props.filters.sortBy,
-  onChange: e => {
-    let sortBy;
+const PhoneListFilters = () => {
+  const {
+    filters,
+    filtersDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_phones_context__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  return __jsx("div", {
+    className: "jsx-1729386003",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: undefined
+  }, __jsx("input", {
+    type: "text",
+    value: filters.text,
+    onChange: e => {
+      filtersDispatch(Object(_actions_filters__WEBPACK_IMPORTED_MODULE_3__["setTextFilter"])(e.target.value));
+    },
+    placeholder: "search by phone, brand or display...",
+    className: "jsx-1729386003",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }), __jsx("select", {
+    value: filters.sortBy,
+    onChange: e => {
+      let sortBy;
 
-    switch (e.target.value) {
-      case "release":
-        sortBy = Object(_actions_filters__WEBPACK_IMPORTED_MODULE_2__["sortByRelease"])();
-        break;
+      switch (e.target.value) {
+        case "release":
+          sortBy = Object(_actions_filters__WEBPACK_IMPORTED_MODULE_3__["sortByRelease"])();
+          break;
 
-      case "price":
-        sortBy = Object(_actions_filters__WEBPACK_IMPORTED_MODULE_2__["sortByPrice"])();
-        break;
+        case "price":
+          sortBy = Object(_actions_filters__WEBPACK_IMPORTED_MODULE_3__["sortByPrice"])();
+          break;
 
-      case "brand":
-        sortBy = Object(_actions_filters__WEBPACK_IMPORTED_MODULE_2__["sortByBrand"])();
-        break;
-    }
+        case "brand":
+          sortBy = Object(_actions_filters__WEBPACK_IMPORTED_MODULE_3__["sortByBrand"])();
+          break;
+      }
 
-    props.dispatch(sortBy);
-  },
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 20
-  },
-  __self: undefined
-}, __jsx("option", {
-  value: "release",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 38
-  },
-  __self: undefined
-}, "Release"), __jsx("option", {
-  value: "price",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 39
-  },
-  __self: undefined
-}, "Price"), __jsx("option", {
-  value: "brand",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 40
-  },
-  __self: undefined
-}, "Brand")));
-
-const mapStateToProps = state => {
-  return {
-    filters: state.filters
-  };
+      filtersDispatch(sortBy);
+    },
+    className: "jsx-1729386003",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: undefined
+  }, __jsx("option", {
+    value: "release",
+    className: "jsx-1729386003",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, "Release"), __jsx("option", {
+    value: "price",
+    className: "jsx-1729386003",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, "Price"), __jsx("option", {
+    value: "brand",
+    className: "jsx-1729386003",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Brand")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "1729386003",
+    __self: undefined
+  }, "input.jsx-1729386003{width:220px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Xb29DaG9pL0Rlc2t0b3AvUmVhY3QuanMvc3BlY3VsYS9zcmMvY29tcG9uZW50cy9QaG9uZUxpc3RGaWx0ZXJzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQStDUyxBQUd5QixZQUNkIiwiZmlsZSI6Ii9Vc2Vycy9Xb29DaG9pL0Rlc2t0b3AvUmVhY3QuanMvc3BlY3VsYS9zcmMvY29tcG9uZW50cy9QaG9uZUxpc3RGaWx0ZXJzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IHVzZUNvbnRleHQgfSBmcm9tIFwicmVhY3RcIjtcbmltcG9ydCBQaG9uZXNDb250ZXh0IGZyb20gXCIuLi9jb250ZXh0L3Bob25lcy1jb250ZXh0XCI7XG5cbmltcG9ydCB7XG4gIHNldFRleHRGaWx0ZXIsXG4gIHNvcnRCeVByaWNlLFxuICBzb3J0QnlSZWxlYXNlLFxuICBzb3J0QnlCcmFuZFxufSBmcm9tIFwiLi4vYWN0aW9ucy9maWx0ZXJzXCI7XG5cbmNvbnN0IFBob25lTGlzdEZpbHRlcnMgPSAoKSA9PiB7XG4gIGNvbnN0IHsgZmlsdGVycywgZmlsdGVyc0Rpc3BhdGNoIH0gPSB1c2VDb250ZXh0KFBob25lc0NvbnRleHQpO1xuXG4gIHJldHVybiAoXG4gICAgPGRpdj5cbiAgICAgIDxpbnB1dFxuICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgIHZhbHVlPXtmaWx0ZXJzLnRleHR9XG4gICAgICAgIG9uQ2hhbmdlPXtlID0+IHtcbiAgICAgICAgICBmaWx0ZXJzRGlzcGF0Y2goc2V0VGV4dEZpbHRlcihlLnRhcmdldC52YWx1ZSkpO1xuICAgICAgICB9fVxuICAgICAgICBwbGFjZWhvbGRlcj1cInNlYXJjaCBieSBwaG9uZSwgYnJhbmQgb3IgZGlzcGxheS4uLlwiXG4gICAgICAvPlxuXG4gICAgICA8c2VsZWN0XG4gICAgICAgIHZhbHVlPXtmaWx0ZXJzLnNvcnRCeX1cbiAgICAgICAgb25DaGFuZ2U9e2UgPT4ge1xuICAgICAgICAgIGxldCBzb3J0Qnk7XG4gICAgICAgICAgc3dpdGNoIChlLnRhcmdldC52YWx1ZSkge1xuICAgICAgICAgICAgY2FzZSBcInJlbGVhc2VcIjpcbiAgICAgICAgICAgICAgc29ydEJ5ID0gc29ydEJ5UmVsZWFzZSgpO1xuICAgICAgICAgICAgICBicmVhaztcbiAgICAgICAgICAgIGNhc2UgXCJwcmljZVwiOlxuICAgICAgICAgICAgICBzb3J0QnkgPSBzb3J0QnlQcmljZSgpO1xuICAgICAgICAgICAgICBicmVhaztcbiAgICAgICAgICAgIGNhc2UgXCJicmFuZFwiOlxuICAgICAgICAgICAgICBzb3J0QnkgPSBzb3J0QnlCcmFuZCgpO1xuICAgICAgICAgICAgICBicmVhaztcbiAgICAgICAgICB9XG4gICAgICAgICAgZmlsdGVyc0Rpc3BhdGNoKHNvcnRCeSk7XG4gICAgICAgIH19XG4gICAgICA+XG4gICAgICAgIDxvcHRpb24gdmFsdWU9XCJyZWxlYXNlXCI+UmVsZWFzZTwvb3B0aW9uPlxuICAgICAgICA8b3B0aW9uIHZhbHVlPVwicHJpY2VcIj5QcmljZTwvb3B0aW9uPlxuICAgICAgICA8b3B0aW9uIHZhbHVlPVwiYnJhbmRcIj5CcmFuZDwvb3B0aW9uPlxuICAgICAgPC9zZWxlY3Q+XG4gICAgICA8c3R5bGUganN4PlxuICAgICAgICB7YFxuICAgICAgICAgIGlucHV0IHtcbiAgICAgICAgICAgIHdpZHRoOiAyMjBweDtcbiAgICAgICAgICB9XG4gICAgICAgIGB9XG4gICAgICA8L3N0eWxlPlxuICAgIDwvZGl2PlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgUGhvbmVMaXN0RmlsdGVycztcbiJdfQ== */\n/*@ sourceURL=/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneListFilters.js */"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(PhoneListFilters));
+/* harmony default export */ __webpack_exports__["default"] = (PhoneListFilters);
 
 /***/ }),
 
@@ -2599,13 +2312,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _actions_phones__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/phones */ "./src/actions/phones.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "uuid");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uuid */ "uuid");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _context_phones_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../context/phones-context */ "./src/context/phones-context.js");
+/* harmony import */ var _actions_phones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions/phones */ "./src/actions/phones.js");
 var _jsxFileName = "/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneListItem.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
@@ -2617,7 +2329,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 const PhoneListItem = ({
-  dispatch,
   id,
   name,
   release,
@@ -2626,207 +2337,132 @@ const PhoneListItem = ({
   display,
   screen,
   dimensions
-}) => __jsx("li", {
-  key: Object(uuid__WEBPACK_IMPORTED_MODULE_5__["v4"])(),
-  className: "jsx-1998586990" + " " + "card",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 19
-  },
-  __self: undefined
-}, __jsx("div", {
-  className: "jsx-1998586990" + " " + "img-container",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 20
-  },
-  __self: undefined
-}), __jsx("div", {
-  className: "jsx-1998586990" + " " + "title",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 21
-  },
-  __self: undefined
-}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
-  href: "/about",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 22
-  },
-  __self: undefined
-}, __jsx("a", {
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 23
-  },
-  __self: undefined
-}, name))), __jsx("ul", {
-  className: "jsx-1998586990" + " " + "phone-spec",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 26
-  },
-  __self: undefined
-}, __jsx("li", {
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 27
-  },
-  __self: undefined
-}, "Released: ", release), __jsx("li", {
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 28
-  },
-  __self: undefined
-}, "Price: $", price), __jsx("li", {
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 29
-  },
-  __self: undefined
-}, "Brand: ", brand), __jsx("li", {
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 30
-  },
-  __self: undefined
-}, "Display: ", display), __jsx("li", {
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 31
-  },
-  __self: undefined
-}, "Screen: ", screen), __jsx("li", {
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 32
-  },
-  __self: undefined
-}, "Dimensions: ", dimensions)), __jsx("button", {
-  onClick: () => {
-    dispatch(Object(_actions_phones__WEBPACK_IMPORTED_MODULE_2__["removePhone"])({
-      id
-    }));
-  },
-  className: "jsx-1998586990",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 34
-  },
-  __self: undefined
-}, "Remove"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-  id: "1998586990",
-  __self: undefined
-}, ".card.jsx-1998586990{display:block;min-height:425px;width:240px;border:1px solid #eee;font-size:14px;margin-bottom:15px;padding-top:20px;border-radius:5px;-webkit-transition:all 0.15s;transition:all 0.15s;box-shadow:2px 2px 8px lightgray;}.card.jsx-1998586990:hover{-webkit-transform:translateY(-13px);-ms-transform:translateY(-13px);transform:translateY(-13px);border:1px solid lightgray;}.img-container.jsx-1998586990{display:block;margin:0 auto;height:250px;width:200px;border-radius:3px;background-color:lavender;}.phone-spec.jsx-1998586990{line-height:1.5;padding:0 20px;}.title.jsx-1998586990{text-align:center;margin:10px 0;font-weight:600;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Xb29DaG9pL0Rlc2t0b3AvUmVhY3QuanMvc3BlY3VsYS9zcmMvY29tcG9uZW50cy9QaG9uZUxpc3RJdGVtLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQTBDTyxBQUd5QixBQVljLEFBSWQsQUFRRSxBQUlFLGNBM0JELEFBZ0JILEVBUUMsRUFJRCxVQVhELEdBaEJELEFBd0JkLENBSWtCLFNBWEosRUFoQlUsS0E0QnhCLEtBWG9CLFlBaEJILE1BaUJXLFNBaEJQLGdCQVFRLENBUzdCLEVBaEJtQixpQkFDQyxPQU9wQixXQU51QixrREFDWSxpQ0FDbkMiLCJmaWxlIjoiL1VzZXJzL1dvb0Nob2kvRGVza3RvcC9SZWFjdC5qcy9zcGVjdWxhL3NyYy9jb21wb25lbnRzL1Bob25lTGlzdEl0ZW0uanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnQgc3RhdGVsZXNzIGZ1bmN0aW9uYWwgY29tcG9uZW50XG5pbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyByZW1vdmVQaG9uZSB9IGZyb20gXCIuLi9hY3Rpb25zL3Bob25lc1wiO1xuaW1wb3J0IHsgY29ubmVjdCB9IGZyb20gXCJyZWFjdC1yZWR1eFwiO1xuaW1wb3J0IExpbmsgZnJvbSBcIm5leHQvbGlua1wiO1xuaW1wb3J0IHsgdjQgYXMgdXVpZHY0IH0gZnJvbSBcInV1aWRcIjtcblxuY29uc3QgUGhvbmVMaXN0SXRlbSA9ICh7XG4gIGRpc3BhdGNoLFxuICBpZCxcbiAgbmFtZSxcbiAgcmVsZWFzZSxcbiAgcHJpY2UsXG4gIGJyYW5kLFxuICBkaXNwbGF5LFxuICBzY3JlZW4sXG4gIGRpbWVuc2lvbnNcbn0pID0+IChcbiAgPGxpIGtleT17dXVpZHY0KCl9IGNsYXNzTmFtZT1cImNhcmRcIj5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cImltZy1jb250YWluZXJcIj48L2Rpdj5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cInRpdGxlXCI+XG4gICAgICA8TGluayBocmVmPVwiL2Fib3V0XCI+XG4gICAgICAgIDxhPntuYW1lfTwvYT5cbiAgICAgIDwvTGluaz5cbiAgICA8L2Rpdj5cbiAgICA8dWwgY2xhc3NOYW1lPVwicGhvbmUtc3BlY1wiPlxuICAgICAgPGxpPlJlbGVhc2VkOiB7cmVsZWFzZX08L2xpPlxuICAgICAgPGxpPlByaWNlOiAke3ByaWNlfTwvbGk+XG4gICAgICA8bGk+QnJhbmQ6IHticmFuZH08L2xpPlxuICAgICAgPGxpPkRpc3BsYXk6IHtkaXNwbGF5fTwvbGk+XG4gICAgICA8bGk+U2NyZWVuOiB7c2NyZWVufTwvbGk+XG4gICAgICA8bGk+RGltZW5zaW9uczoge2RpbWVuc2lvbnN9PC9saT5cbiAgICA8L3VsPlxuICAgIDxidXR0b25cbiAgICAgIG9uQ2xpY2s9eygpID0+IHtcbiAgICAgICAgZGlzcGF0Y2gocmVtb3ZlUGhvbmUoeyBpZCB9KSk7XG4gICAgICB9fVxuICAgID5cbiAgICAgIFJlbW92ZVxuICAgIDwvYnV0dG9uPlxuXG4gICAgPHN0eWxlIGpzeD5cbiAgICAgIHtgXG4gICAgICAgIC5jYXJkIHtcbiAgICAgICAgICBkaXNwbGF5OiBibG9jaztcbiAgICAgICAgICBtaW4taGVpZ2h0OiA0MjVweDtcbiAgICAgICAgICB3aWR0aDogMjQwcHg7XG4gICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgICAgbWFyZ2luLWJvdHRvbTogMTVweDtcbiAgICAgICAgICBwYWRkaW5nLXRvcDogMjBweDtcbiAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMTVzO1xuICAgICAgICAgIGJveC1zaGFkb3c6IDJweCAycHggOHB4IGxpZ2h0Z3JheTtcbiAgICAgICAgfVxuICAgICAgICAuY2FyZDpob3ZlciB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0xM3B4KTtcbiAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCBsaWdodGdyYXk7XG4gICAgICAgIH1cbiAgICAgICAgLmltZy1jb250YWluZXIge1xuICAgICAgICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgICAgICAgIG1hcmdpbjogMCBhdXRvO1xuICAgICAgICAgIGhlaWdodDogMjUwcHg7XG4gICAgICAgICAgd2lkdGg6IDIwMHB4O1xuICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsYXZlbmRlcjtcbiAgICAgICAgfVxuICAgICAgICAucGhvbmUtc3BlYyB7XG4gICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNTtcbiAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7XG4gICAgICAgIH1cbiAgICAgICAgLnRpdGxlIHtcbiAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgICAgbWFyZ2luOiAxMHB4IDA7XG4gICAgICAgICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICAgICAgfVxuICAgICAgYH1cbiAgICA8L3N0eWxlPlxuICA8L2xpPlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgY29ubmVjdCgpKFBob25lTGlzdEl0ZW0pO1xuIl19 */\n/*@ sourceURL=/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneListItem.js */"));
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])()(PhoneListItem));
-
-/***/ }),
-
-/***/ "./src/reducers/filters.js":
-/*!*********************************!*\
-  !*** ./src/reducers/filters.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// Filters Reducer
-const filtersReducerDefaultState = {
-  text: "",
-  sortBy: "release"
-};
-
-const filtersReducer = (state = filtersReducerDefaultState, action) => {
-  switch (action.type) {
-    case "SET_TEXT_FILTER":
-      return _objectSpread({}, state, {
-        text: action.text
-      });
-
-    case "SORT_BY_PRICE":
-      return _objectSpread({}, state, {
-        sortBy: "price"
-      });
-
-    case "SORT_BY_RELEASE":
-      return _objectSpread({}, state, {
-        sortBy: "release"
-      });
-
-    case "SORT_BY_BRAND":
-      return _objectSpread({}, state, {
-        sortBy: "brand"
-      });
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (filtersReducer);
-
-/***/ }),
-
-/***/ "./src/reducers/phones.js":
-/*!********************************!*\
-  !*** ./src/reducers/phones.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// Phones Reducer
-const phonesReducerDefaultState = [];
-
-const phonesReducer = (state = phonesReducerDefaultState, action) => {
-  switch (action.type) {
-    case "ADD_PHONE":
-      return [...state, action.phone];
-
-    case "REMOVE_PHONE":
-      return state.filter(({
+}) => {
+  const {
+    phonesDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_phones_context__WEBPACK_IMPORTED_MODULE_4__["default"]);
+  return __jsx("li", {
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_3__["v4"])(),
+    className: "jsx-3839595761" + " " + "card",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: "jsx-3839595761" + " " + "img-container",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: undefined
+  }), __jsx("div", {
+    className: "jsx-3839595761" + " " + "title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: undefined
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/about",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: undefined
+  }, __jsx("a", {
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: undefined
+  }, name))), __jsx("ul", {
+    className: "jsx-3839595761" + " " + "phone-spec",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  }, __jsx("li", {
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: undefined
+  }, "Released: ", release), __jsx("li", {
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31
+    },
+    __self: undefined
+  }, "Price: $", price), __jsx("li", {
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: undefined
+  }, "Brand: ", brand), __jsx("li", {
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: undefined
+  }, "Display: ", display), __jsx("li", {
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: undefined
+  }, "Screen: ", screen), __jsx("li", {
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: undefined
+  }, "Dimensions: ", dimensions)), __jsx("button", {
+    onClick: () => {
+      phonesDispatch(Object(_actions_phones__WEBPACK_IMPORTED_MODULE_5__["removePhone"])({
         id
-      }) => id !== action.id);
-
-    case "EDIT_PHONE":
-      return state.map(phone => {
-        if (phone.id === action.id) {
-          return _objectSpread({}, phone, {}, action.updates);
-        } else {
-          return phone;
-        }
-      });
-
-    default:
-      return state;
-  }
+      }));
+    },
+    className: "jsx-3839595761",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: undefined
+  }, "Remove"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "3839595761",
+    __self: undefined
+  }, ".card.jsx-3839595761{display:block;min-height:425px;width:240px;border:1px solid #eee;font-size:14px;margin-bottom:15px;padding-top:20px;border-radius:5px;-webkit-transition:all 0.15s;transition:all 0.15s;box-shadow:2px 2px 8px lightgray;}.card.jsx-3839595761:hover{-webkit-transform:translateY(-13px);-ms-transform:translateY(-13px);transform:translateY(-13px);border:1px solid lightgray;}.img-container.jsx-3839595761{display:block;margin:0 auto;height:250px;width:200px;border-radius:3px;background-color:lavender;}.phone-spec.jsx-3839595761{line-height:1.5;padding:0 20px;}.title.jsx-3839595761{text-align:center;margin:10px 0;font-weight:600;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Xb29DaG9pL0Rlc2t0b3AvUmVhY3QuanMvc3BlY3VsYS9zcmMvY29tcG9uZW50cy9QaG9uZUxpc3RJdGVtLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQTZDUyxBQUcyQixBQVljLEFBSWQsQUFRRSxBQUlFLGNBM0JELEFBZ0JILEVBUUMsRUFJRCxVQVhELEdBaEJELEFBd0JkLENBSWtCLFNBWEosRUFoQlUsS0E0QnhCLEtBWG9CLFlBaEJILE1BaUJXLFNBaEJQLGdCQVFRLENBUzdCLEVBaEJtQixpQkFDQyxPQU9wQixXQU51QixrREFDWSxpQ0FDbkMiLCJmaWxlIjoiL1VzZXJzL1dvb0Nob2kvRGVza3RvcC9SZWFjdC5qcy9zcGVjdWxhL3NyYy9jb21wb25lbnRzL1Bob25lTGlzdEl0ZW0uanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnQgc3RhdGVsZXNzIGZ1bmN0aW9uYWwgY29tcG9uZW50XG5pbXBvcnQgUmVhY3QsIHsgdXNlQ29udGV4dCB9IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IExpbmsgZnJvbSBcIm5leHQvbGlua1wiO1xuaW1wb3J0IHsgdjQgYXMgdXVpZHY0IH0gZnJvbSBcInV1aWRcIjtcblxuaW1wb3J0IFBob25lc0NvbnRleHQgZnJvbSBcIi4uL2NvbnRleHQvcGhvbmVzLWNvbnRleHRcIjtcbmltcG9ydCB7IHJlbW92ZVBob25lIH0gZnJvbSBcIi4uL2FjdGlvbnMvcGhvbmVzXCI7XG5cbmNvbnN0IFBob25lTGlzdEl0ZW0gPSAoe1xuICBpZCxcbiAgbmFtZSxcbiAgcmVsZWFzZSxcbiAgcHJpY2UsXG4gIGJyYW5kLFxuICBkaXNwbGF5LFxuICBzY3JlZW4sXG4gIGRpbWVuc2lvbnNcbn0pID0+IHtcbiAgY29uc3QgeyBwaG9uZXNEaXNwYXRjaCB9ID0gdXNlQ29udGV4dChQaG9uZXNDb250ZXh0KTtcblxuICByZXR1cm4gKFxuICAgIDxsaSBrZXk9e3V1aWR2NCgpfSBjbGFzc05hbWU9XCJjYXJkXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImltZy1jb250YWluZXJcIj48L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGl0bGVcIj5cbiAgICAgICAgPExpbmsgaHJlZj1cIi9hYm91dFwiPlxuICAgICAgICAgIDxhPntuYW1lfTwvYT5cbiAgICAgICAgPC9MaW5rPlxuICAgICAgPC9kaXY+XG4gICAgICA8dWwgY2xhc3NOYW1lPVwicGhvbmUtc3BlY1wiPlxuICAgICAgICA8bGk+UmVsZWFzZWQ6IHtyZWxlYXNlfTwvbGk+XG4gICAgICAgIDxsaT5QcmljZTogJHtwcmljZX08L2xpPlxuICAgICAgICA8bGk+QnJhbmQ6IHticmFuZH08L2xpPlxuICAgICAgICA8bGk+RGlzcGxheToge2Rpc3BsYXl9PC9saT5cbiAgICAgICAgPGxpPlNjcmVlbjoge3NjcmVlbn08L2xpPlxuICAgICAgICA8bGk+RGltZW5zaW9uczoge2RpbWVuc2lvbnN9PC9saT5cbiAgICAgIDwvdWw+XG4gICAgICA8YnV0dG9uXG4gICAgICAgIG9uQ2xpY2s9eygpID0+IHtcbiAgICAgICAgICBwaG9uZXNEaXNwYXRjaChyZW1vdmVQaG9uZSh7IGlkIH0pKTtcbiAgICAgICAgfX1cbiAgICAgID5cbiAgICAgICAgUmVtb3ZlXG4gICAgICA8L2J1dHRvbj5cblxuICAgICAgPHN0eWxlIGpzeD5cbiAgICAgICAge2BcbiAgICAgICAgICAuY2FyZCB7XG4gICAgICAgICAgICBkaXNwbGF5OiBibG9jaztcbiAgICAgICAgICAgIG1pbi1oZWlnaHQ6IDQyNXB4O1xuICAgICAgICAgICAgd2lkdGg6IDI0MHB4O1xuICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XG4gICAgICAgICAgICBwYWRkaW5nLXRvcDogMjBweDtcbiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICAgICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjE1cztcbiAgICAgICAgICAgIGJveC1zaGFkb3c6IDJweCAycHggOHB4IGxpZ2h0Z3JheTtcbiAgICAgICAgICB9XG4gICAgICAgICAgLmNhcmQ6aG92ZXIge1xuICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0xM3B4KTtcbiAgICAgICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIGxpZ2h0Z3JheTtcbiAgICAgICAgICB9XG4gICAgICAgICAgLmltZy1jb250YWluZXIge1xuICAgICAgICAgICAgZGlzcGxheTogYmxvY2s7XG4gICAgICAgICAgICBtYXJnaW46IDAgYXV0bztcbiAgICAgICAgICAgIGhlaWdodDogMjUwcHg7XG4gICAgICAgICAgICB3aWR0aDogMjAwcHg7XG4gICAgICAgICAgICBib3JkZXItcmFkaXVzOiAzcHg7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsYXZlbmRlcjtcbiAgICAgICAgICB9XG4gICAgICAgICAgLnBob25lLXNwZWMge1xuICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNTtcbiAgICAgICAgICAgIHBhZGRpbmc6IDAgMjBweDtcbiAgICAgICAgICB9XG4gICAgICAgICAgLnRpdGxlIHtcbiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgICAgIG1hcmdpbjogMTBweCAwO1xuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICAgICAgICB9XG4gICAgICAgIGB9XG4gICAgICA8L3N0eWxlPlxuICAgIDwvbGk+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBQaG9uZUxpc3RJdGVtO1xuIl19 */\n/*@ sourceURL=/Users/WooChoi/Desktop/React.js/specula/src/components/PhoneListItem.js */"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (phonesReducer);
+/* harmony default export */ __webpack_exports__["default"] = (PhoneListItem);
+
+/***/ }),
+
+/***/ "./src/context/phones-context.js":
+/*!***************************************!*\
+  !*** ./src/context/phones-context.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PhonesContext; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const PhonesContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();
+
 
 /***/ }),
 
@@ -2867,34 +2503,7 @@ const getVisiblePhones = (phones, {
 
 /***/ }),
 
-/***/ "./src/store/configureStore.js":
-/*!*************************************!*\
-  !*** ./src/store/configureStore.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _reducers_phones__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/phones */ "./src/reducers/phones.js");
-/* harmony import */ var _reducers_filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers/filters */ "./src/reducers/filters.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (() => {
-  // Store creation
-  const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-    phones: _reducers_phones__WEBPACK_IMPORTED_MODULE_1__["default"],
-    filters: _reducers_filters__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }));
-  return store;
-});
-
-/***/ }),
-
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -2950,25 +2559,14 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ "react-redux":
-/*!******************************!*\
-  !*** external "react-redux" ***!
-  \******************************/
+/***/ "react-is":
+/*!***************************!*\
+  !*** external "react-is" ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("react-redux");
-
-/***/ }),
-
-/***/ "redux":
-/*!************************!*\
-  !*** external "redux" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
+module.exports = require("react-is");
 
 /***/ }),
 
