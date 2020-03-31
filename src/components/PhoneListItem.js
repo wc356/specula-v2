@@ -14,13 +14,17 @@ const PhoneListItem = ({
   brand,
   display,
   screen,
-  dimensions
+  dimensions,
+  img
 }) => {
   const { phonesDispatch } = useContext(PhonesContext);
+  const onImgLoad = img ? "white" : "lavender";
 
   return (
     <li key={uuidv4()} className="card">
-      <div className="img-container"></div>
+      <div className="img-container">
+        <img src={img} alt="picture of phone" />
+      </div>
       <div className="title">
         <Link href="/about">
           <a>{name}</a>
@@ -50,14 +54,15 @@ const PhoneListItem = ({
           .card {
             display: block;
             min-height: 425px;
-            width: 240px;
+            width: 245px;
             border: 1px solid #eee;
             font-size: 14px;
             margin-bottom: 15px;
             padding-top: 20px;
             border-radius: 5px;
             transition: all 0.15s;
-            box-shadow: 2px 2px 8px lightgray;
+            box-shadow: 2px 2px 8px black;
+            background: white;
           }
           .card:hover {
             transform: translateY(-13px);
@@ -69,7 +74,12 @@ const PhoneListItem = ({
             height: 250px;
             width: 200px;
             border-radius: 3px;
-            background-color: lavender;
+            background-color: ${onImgLoad};
+          }
+          img {
+            width: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
           }
           .phone-spec {
             line-height: 1.5;

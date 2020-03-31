@@ -14,8 +14,8 @@ const Nav = () => (
         <Link href="/add">
           <a className="navlink">Add Phone</a>
         </Link>
-        <Link href="/help">
-          <a className="navlink">Help</a>
+        <Link href="/about">
+          <a className="navlink">About</a>
         </Link>
       </div>
     </div>
@@ -26,13 +26,16 @@ const Nav = () => (
           display: flex;
           position: sticky;
           top: 0;
-          border-bottom: 1px solid lightgray;
-          background: #fff;
+          background: rgba(255, 255, 255, 0.1);
+          background-image: linear-gradient(
+            to bottom,
+            rgb(255, 255, 255) 0%,
+            rgba(255, 255, 255, 0.5) 99%
+          );
           height: 15vh;
           width: 100%;
           align-items: center;
           z-index: 2;
-          box-shadow: 3px 3px 6px #eee;
         }
         .logo {
           display: inline;

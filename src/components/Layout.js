@@ -20,8 +20,15 @@ const Layout = ({ children }) => {
         />
       </Head>
       <Nav />
-      <div>{children}</div>
+      <div className="body">{children}</div>
 
+      <style jsx>
+        {`
+          .body {
+            padding-top: 30px;
+          }
+        `}
+      </style>
       <style jsx global>
         {`
           @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");

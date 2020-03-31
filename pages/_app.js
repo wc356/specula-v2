@@ -5,8 +5,6 @@ import phoneDB from "../src/database/index";
 import filtersReducer from "../src/reducers/filters";
 import phonesReducer from "../src/reducers/phones";
 
-import { addPhone } from "../src/actions/phones";
-
 const App = ({ Component, pageProps }) => {
   const [phones, phonesDispatch] = useReducer(phonesReducer, phoneDB);
   const [filters, filtersDispatch] = useReducer(filtersReducer, {

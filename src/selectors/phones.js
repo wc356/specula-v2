@@ -15,9 +15,9 @@ const getVisiblePhones = (phones, { text, sortBy }) => {
         case "price":
           return a.price < b.price ? 1 : -1;
         case "release":
-          return a.release < b.release ? 1 : -1;
+          return a.release < b.release ? -1 : 1;
         case "brand":
-          return a.brand < b.brand ? 1 : -1;
+          return a.brand < b.brand ? -1 : 1;
       }
     });
 };

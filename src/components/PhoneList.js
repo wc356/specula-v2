@@ -12,13 +12,13 @@ const PhoneList = () => {
       {getVisiblePhones(phones, filters).map(phone => (
         <PhoneListItem key={phone.id} {...phone} />
       ))}
+
       <style jsx>
         {`
           .phone-list {
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
-            padding-top: 100px;
           }
         `}
       </style>

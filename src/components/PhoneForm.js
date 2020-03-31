@@ -3,10 +3,10 @@ import React, { useState } from "react";
 const PhoneForm = props => {
   const [name, setName] = useState("");
   const [release, setRelease] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [brand, setBrand] = useState("");
   const [display, setDisplay] = useState("");
-  const [screen, setScreen] = useState(0);
+  const [screen, setScreen] = useState("");
   const [dimensions, setDimensions] = useState("");
   const [error, setError] = useState("");
 
@@ -52,7 +52,7 @@ const PhoneForm = props => {
           type="text"
           value={name}
           onChange={onNameChange}
-          placeholder="name"
+          placeholder="phone name"
           autoFocus
         />
         <input
@@ -60,14 +60,14 @@ const PhoneForm = props => {
           type="text"
           value={release}
           onChange={onReleaseChange}
-          placeholder="release"
+          placeholder="release year"
         />
         <input
           className="flex-item"
           type="text"
           value={price}
           onChange={onPriceChange}
-          placeholder="price"
+          placeholder="phone price"
         />
         <input
           className="flex-item"

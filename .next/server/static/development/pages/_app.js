@@ -108,12 +108,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_database_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/database/index */ "./src/database/index.js");
 /* harmony import */ var _src_reducers_filters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/reducers/filters */ "./src/reducers/filters.js");
 /* harmony import */ var _src_reducers_phones__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/reducers/phones */ "./src/reducers/phones.js");
-/* harmony import */ var _src_actions_phones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/actions/phones */ "./src/actions/phones.js");
 var _jsxFileName = "/Users/WooChoi/Desktop/React.js/specula/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 
 
 
@@ -161,72 +159,19 @@ const App = ({
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 30
     },
     __self: undefined
   }, __jsx(Component, _extends({}, pageProps, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 33
     },
     __self: undefined
   })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
-
-/***/ }),
-
-/***/ "./src/actions/phones.js":
-/*!*******************************!*\
-  !*** ./src/actions/phones.js ***!
-  \*******************************/
-/*! exports provided: addPhone, removePhone, editPhone */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addPhone", function() { return addPhone; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removePhone", function() { return removePhone; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editPhone", function() { return editPhone; });
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uuid */ "uuid");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_0__);
- // ADD_PHONE
-
-const addPhone = ({
-  name = "",
-  release = "",
-  price = 0,
-  brand = "",
-  display = "",
-  screen = 0,
-  dimensions = ""
-} = {}) => ({
-  type: "ADD_PHONE",
-  phone: {
-    id: Object(uuid__WEBPACK_IMPORTED_MODULE_0__["v4"])(),
-    name,
-    release,
-    price,
-    brand,
-    display,
-    screen,
-    dimensions
-  }
-}); // REMOVE_PHONE
-
-const removePhone = ({
-  id
-} = {}) => ({
-  type: "REMOVE_PHONE",
-  id
-}); // EDIT_PHONE
-
-const editPhone = (id, updates) => ({
-  type: "EDIT_PHONE",
-  id,
-  updates
-});
 
 /***/ }),
 
@@ -260,93 +205,103 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ([{
   id: "iPhone 11",
   name: "iPhone 11",
-  release: "2019 Sept",
-  price: 69000,
+  release: "Sept 2019",
+  price: "690.00",
   brand: "Apple",
   display: "Liquid Retina HD",
   screen: "6.1 in",
-  dimensions: "2.98 x 5.94 x 0.33 in"
+  dimensions: "2.98 x 5.94 x 0.33 in",
+  img: "/img/iPhone-11.png"
 }, {
   id: "iPhone 11 Pro",
   name: "iPhone 11 Pro",
-  release: "2019 Sept",
-  price: 99900,
+  release: "Sept 2019",
+  price: "999.00",
   brand: "Apple",
   display: "Super Retina XDR",
   screen: "5.8 in",
-  dimensions: "2.81 x 5.67 x 0.32 in"
+  dimensions: "2.81 x 5.67 x 0.32 in",
+  img: "/img/iPhone-11-Pro.png"
 }, {
   id: "iPhone 11 Pro Max",
   name: "iPhone 11 Pro Max",
-  release: "2019 Sept",
-  price: 109900,
+  release: "Sept 2019",
+  price: "1099.00",
   brand: "Apple",
   display: "Super Retina XDR",
   screen: "6.5 in",
-  dimensions: "3.06 x 6.22 x 0.32 in"
+  dimensions: "3.06 x 6.22 x 0.32 in",
+  img: "/img/iPhone-11-Pro-Max.png"
 }, {
   id: "iPhone Xr",
   name: "iPhone Xr",
-  release: "2018 Sept",
-  price: 59900,
+  release: "Sept 2018",
+  price: "599.00",
   brand: "Apple",
   display: "Liquid Retina HD",
   screen: "6.1 in",
-  dimensions: "2.98 x 5.94 x 0.33 in"
+  dimensions: "2.98 x 5.94 x 0.33 in",
+  img: "/img/iPhone-Xr.png"
 }, {
   id: "Galaxy Note 10",
   name: "Galaxy Note 10",
-  release: "2019 July",
-  price: 94999,
+  release: "July 2019",
+  price: "949.99",
   brand: "Samsung",
   display: "FHD+ Dynamic AMOLED",
   screen: "6.3 in",
-  dimensions: "2.83 x 5.94 x 0.31 in"
+  dimensions: "2.83 x 5.94 x 0.31 in",
+  img: "/img/Galaxy-Note-10.jpg"
 }, {
   id: "Galaxy Note 10+",
   name: "Galaxy Note 10+",
-  release: "2019 July",
-  price: 1099.09,
+  release: "July 2019",
+  price: "1099.09",
   brand: "Samsung",
   display: "Quad HD+ Dynamic AMOLED",
   screen: "6.8 in",
-  dimensions: "3.04 x 6.39 x 0.31 in"
+  dimensions: "3.04 x 6.39 x 0.31 in",
+  img: "/img/Galaxy-Note-10+.jpg"
 }, {
   id: "Galaxy S10",
   name: "Galaxy S10",
-  release: "2019 March",
-  price: 89999,
+  release: "March 2019",
+  price: "899.99",
   brand: "Samsung",
   display: "Quad HD+ Dynamic AMOLED",
   screen: "6.1 in",
-  dimensions: "2.77 x 5.90 x 0.31 in"
+  dimensions: "2.77 x 5.90 x 0.31 in",
+  img: "/img/Galaxy-S10.jpg"
 }, {
   id: "Galaxy S10+",
   name: "Galaxy S10+",
-  release: "2019 March",
-  price: 99999,
+  release: "March 2019",
+  price: "999.99",
   brand: "Samsung",
   display: "Quad HD+ Dynamic AMOLED",
   screen: "6.4 in",
-  dimensions: "2.92 x 6.20 x 0.31 in"
+  dimensions: "2.92 x 6.20 x 0.31 in",
+  img: "/img/Galaxy-S10+.jpg"
 }, {
   id: "Galaxy Fold",
   name: "Galaxy Fold",
-  release: "2019 Sept",
-  price: 198000,
+  release: "Sept 2019",
+  price: "1980.00",
   brand: "Samsung",
   display: "QXGA+ Dynamic AMOLED",
   screen: "7.3 in",
-  dimensions: "4.64 x 6.33 x 0.30 in"
+  dimensions: "4.64 x 6.33 x 0.30 in",
+  img: "/img/Galaxy-Fold.png"
 }, {
   id: "Pixel 3",
   name: "Pixel 3",
-  release: "2019 Sept",
-  price: 79900,
+  release: "Sept 2019",
+  price: "799.00",
   brand: "Google",
   display: "FHD+ flexible OLED",
   screen: "5.5 in",
-  dimensions: "2.69 x 5.73 x 0.31 in"
+  dimensions: "2.69 x 5.73 x 0.31 in",
+  img: "/img/Pixel-3.png"
 }]);
 
 /***/ }),
@@ -467,17 +422,6 @@ module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_
 /***/ (function(module, exports) {
 
 module.exports = require("react");
-
-/***/ }),
-
-/***/ "uuid":
-/*!***********************!*\
-  !*** external "uuid" ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("uuid");
 
 /***/ })
 
