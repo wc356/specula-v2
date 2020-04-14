@@ -1,22 +1,21 @@
 import React, { useState } from "react";
+import useInput from "../hooks/useInput";
 
-const PhoneForm = props => {
-  const [name, setName] = useState("");
-  const [release, setRelease] = useState("");
+const PhoneForm = (props) => {
+  const [name, bindName, resetName] = useInput("");
+  const [release, bindRelease, resetRelease] = useInput("");
   const [price, setPrice] = useState("");
-  const [brand, setBrand] = useState("");
-  const [display, setDisplay] = useState("");
-  const [screen, setScreen] = useState("");
-  const [dimensions, setDimensions] = useState("");
+  const [brand, bindBrand, resetBrand] = useInput("");
+  const [display, bindDisplay, resetDisplay] = useInput("");
+  const [screen, bindScreen, resetScreen] = useInput("");
+  const [dimensions, bindDimensions, resetDimensions] = useInput("");
   const [error, setError] = useState("");
 
-  const onNameChange = e => setName(e.target.value);
-  const onReleaseChange = e => setRelease(e.target.value);
-  const onBrandChange = e => setBrand(e.target.value);
-  const onDisplayChange = e => setDisplay(e.target.value);
-  const onScreenChange = e => setScreen(e.target.value);
-  const onDimensionsChange = e => setDimensions(e.target.value);
-  const onPriceChange = e => {
+  const resetPrice = () => {
+    setPrice("");
+  };
+
+  const onPriceChange = (e) => {
     // Regex to constrain currency input to two decimal places
     const val = e.target.val;
     if (!val || val.match(/^\d{1,}(\.\d{0,2})?$/)) {
@@ -24,7 +23,7 @@ const PhoneForm = props => {
     }
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     if (!name || !brand) {
       setError("Please provide Name and Brand");
@@ -38,8 +37,16 @@ const PhoneForm = props => {
         brand,
         display,
         screen,
-        dimensions
+        dimensions,
       });
+
+      resetName();
+      resetRelease();
+      resetPrice();
+      resetBrand();
+      resetDisplay();
+      resetScreen();
+      resetDimensions();
     }
   };
 
@@ -50,16 +57,14 @@ const PhoneForm = props => {
         <input
           className="flex-item"
           type="text"
-          value={name}
-          onChange={onNameChange}
+          {...bindName}
           placeholder="phone name"
           autoFocus
         />
         <input
           className="flex-item"
           type="text"
-          value={release}
-          onChange={onReleaseChange}
+          {...bindRelease}
           placeholder="release year"
         />
         <input
@@ -72,34 +77,29 @@ const PhoneForm = props => {
         <input
           className="flex-item"
           type="text"
-          value={brand}
-          onChange={onBrandChange}
+          {...bindBrand}
           placeholder="brand"
         />
         <input
           className="flex-item"
           type="text"
-          value={display}
-          onChange={onDisplayChange}
+          {...bindDisplay}
           placeholder="display"
         />
         <input
           className="flex-item"
           type="text"
-          value={screen}
-          onChange={onScreenChange}
+          {...bindScreen}
           placeholder="screen"
         />
         <input
           className="flex-item"
           type="text"
-          value={dimensions}
-          onChange={onDimensionsChange}
+          {...bindDimensions}
           placeholder="dimensions"
         />
         <button className="btn">ADD EXPENSE</button>
       </form>
-
       <style jsx>
         {`
           .container {

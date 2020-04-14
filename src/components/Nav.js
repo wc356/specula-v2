@@ -62,6 +62,7 @@ const Nav = () => (
           display: block;
           padding: 15px;
         }
+        }
       `}
     </style>
   </div>
